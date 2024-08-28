@@ -29,5 +29,10 @@ router.get('/',(req,res) => {
     res.send(users);//to send response back to client
 });
 
+router.get('/:id',(req,res) =>{
+    const {id} =req.params;
+    const foundUser= user.find((user)=>user.id=== id)
+    res.send(foundUser)
+})
 
 export default router
