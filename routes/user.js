@@ -43,6 +43,18 @@ router.delete('/:id',(req,res) =>{
     res.send(`${id} deleted successfuly with ${first_name} from database`);
 });
 
+// CREATE patch user id endpoint
+
+router.patch('/:id',(req,res) =>{
+    const {id} =req.params;
+    const {first_name,last_name}=req.body;
+    const user =users.find((user)=> user.id===id)
+    if(first_name) user.first_name = first_name;
+    if(last_name) user.last_name = last_name;
+    res.send(`User with the ${id} has been updated`)
+
+})
+
 export default router
 // import express from 'express';
 // import { v4 as uuidv4 } from 'uuid';
